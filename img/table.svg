@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<svg width="2132.56" height="2961.0800000000004" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <g class="layer">
+  <title>Layer 1</title>
+  <g id="MESA_X">
+   <ellipse cx="312.44" cy="233.92" fill="#7f7f7f" id="svg_1" rx="148" ry="144" stroke="#000000" stroke-width="5"/>
+   <rect fill="#7f7f7f" height="104" id="svg_2" stroke="#000000" stroke-width="5" width="33" x="115.44" y="175.92"/>
+   <rect fill="#7f7f7f" height="104" id="svg_3" stroke="#000000" stroke-width="5" width="33" x="478.44" y="182.92"/>
+   <rect fill="#7f7f7f" height="104" id="svg_4" stroke="#000000" stroke-width="5" transform="rotate(-90 317.94 54.9199)" width="33" x="301.44" y="2.92"/>
+   <rect fill="#7f7f7f" height="104" id="svg_5" stroke="#000000" stroke-width="5" transform="rotate(-90 315.94 410.92)" width="33" x="299.44" y="358.92"/>
+  </g>
+ </g>
+</svg>

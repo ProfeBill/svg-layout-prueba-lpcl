@@ -51,8 +51,8 @@ export default {
 
     // eslint-disable-next-line
     select : function ( e, o ){
-      console.log( "Selecting" );
-      console.log(e);
+      // console.log( "Selecting" );
+      // console.log(e);
       let selection = e.target;
 
       // Find the parent with clickable class
@@ -84,15 +84,13 @@ export default {
         let style = (status) ? this.status_map[ status.table_status ] : null;
         
         if( style  ){
-          console.log("setting style to " + style)
+          // console.log("setting style to " + style)
           path.style.fill = style;
         } 
       }
-    },
-
-    testData : function (){
-      // eslint-disable-next-line 
     }
+
+
   }
 }
 </script>

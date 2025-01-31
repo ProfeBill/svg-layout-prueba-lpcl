@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    
-    <SVGLayout location="./img/sample-layout.svg" v-bind:status="status" v-bind:status_map="status_map" v-on:select="clicked"/>
+    <button @click="loadMap">Build Map</button>
+    <SVGLayout ref="map" location="./img/sample-layout.svg" v-bind:status="status" v-bind:status_map="status_map" v-on:select="clicked"/>
   </div>
 </template>
 
@@ -43,7 +43,13 @@ export default {
   methods : {
     clicked( e ){
       window.alert( "Selected : " + e.id );
-    }
+    },
+    
+    loadMap : function (){
+      this.$refs["map"].update() ;
+    },
+
+
   }
 
 }

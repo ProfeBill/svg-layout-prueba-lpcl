@@ -3,7 +3,6 @@
     <object alt="Layout" :data="location" type="image/svg+xml">
 			Browser not compatible
 		</object>    
-    <button @click="loadMap">Build Map</button>
   </div>
 </template>
 
@@ -21,32 +20,6 @@ export default {
 
   data(){
     return   {   
-    /*  status :  {
-          "TABLE_1" : {
-            
-            "capacity": 4,
-            "customer_count": 2,
-            "table_status" : "empty",
-            "order_status": "no_order"
-        },
-        "TABLE_2" :
-        {
-            "capacity": 4,
-            "customer_count": 3,
-            "table_status" : "occupied",
-            "order_status": "cooking"
-        }
-
-      },
-
-      // eslint-disable-next-line 
-      status_map : {
-        "empty": "cyan",
-        "occupied": "yellow"
-      }
-
-      */
-
     }
   },
   
@@ -54,16 +27,11 @@ export default {
       // this.loadMap();
     },
 
-/*  Events
-table-selected : Trigered when the user selects a table on the screen
-*/
   methods : {
 /*    updateStatus( status_object ) {},   // Updates all tables with a full status JSON object for all tables
     updateTable( table_id, table_status, order_status ) {}  // Updates the status of only one Table, given its ID */
 
-    loadMap : function (){
-      // this.testData();
-
+    update : function (){
       this.buildMap( this.$refs["svgobject"]  );
     },
 

@@ -1,20 +1,54 @@
 <template>
-   <div class="hello">
-    <svg width="200" height="200">
-      <circle cx="100" cy="100" r="50" stroke="black" stroke-width="3" fill="red" />
-    </svg>
+    <div ref="svgobject" >
+    <object alt="Layout" :data="location" type="image/svg+xml">
+			Browser not compatible
+		</object>    
+    <button @click="loadMap">Build Map</button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'SVGLayout',
+  model: {
+    event: 'select'
+  },  
   props: {
-    location : String, // URL of the SVG table layout file
-    status : Object, // table status data obtained with the Table Status Service
-    table_statuses : Object, // A Dictionary with the styles for each of the possible table_status values
-    order_statuses : Object // A Dictionary with the styles to be applied on every order status value 
+    location : String // URL of the SVG table layout file
   },
+
+  data(){
+    return   {   
+      status :  {
+          "TABLE_1" : {
+            
+            "capacity": 4,
+            "customer_count": 2,
+            "table_status" : "empty",
+            "order_status": "no_order"
+        },
+        "TABLE_2" :
+        {
+            "capacity": 4,
+            "customer_count": 3,
+            "table_status" : "occupied",
+            "order_status": "cooking"
+        }
+
+      },
+
+      // eslint-disable-next-line 
+      status_map : {
+        "empty": "cyan",
+        "occupied": "yellow"
+      }
+
+    }
+  },
+  
+  beforeMount : function() {
+      // this.loadMap();
+    },
 
 /*  Events
 table-selected : Trigered when the user selects a table on the screen
@@ -22,6 +56,71 @@ table-selected : Trigered when the user selects a table on the screen
   methods : {
 /*    updateStatus( status_object ) {},   // Updates all tables with a full status JSON object for all tables
     updateTable( table_id, table_status, order_status ) {}  // Updates the status of only one Table, given its ID */
+
+    loadMap : function (){
+      // this.testData();
+
+      this.buildMap( this.$refs["svgobject"]  );
+    },
+
+// get the embedded document, if possible
+    getContentDocument : function (embeddingElement) {
+      if (embeddingElement.contentDocument !== null) {
+        return embeddingElement.contentDocument;
+      }
+      try {
+        var svg = embeddingElement.getSVGDocument();
+      return svg;
+      } catch (e) {
+      console.log(e);
+      }
+      return null;
+    },
+
+    // eslint-disable-next-line
+    select : function ( e, o ){
+      console.log( "Selecting" );
+      console.log(e);
+      let selection = e.target;
+
+      // Find the parent with clickable class
+      while( !selection.classList.contains("clickable") && selection.parentNode !== null )
+        selection = selection.parentNode;
+
+      if ( selection.id == "" || selection.id == "."  || selection.parentNode == null) 
+        // Invalid selection
+        return;
+        
+      this.$emit( "select", selection )
+    },
+
+    // main logic
+    buildMap : function (m) {
+      let children = m.children;
+      let d = this.getContentDocument(children[0]),
+      p = d.querySelectorAll('g.clickable');
+
+      for(var i = 0; i < p.length; i++){
+        let path = p[i];
+        path.addEventListener('click', this.select );
+
+        console.log("Event listening " + path.id);
+
+        // Find status for ID
+        let status = this._data.status[ path.id ];
+        // Get style used for that status
+        let style = (status) ? this._data.status_map[ status.table_status ] : null;
+        
+        if( style  ){
+          console.log("setting style to " + style)
+          path.style.fill = style;
+        } 
+      }
+    },
+
+    testData : function (){
+      // eslint-disable-next-line 
+    }
   }
 }
 </script>

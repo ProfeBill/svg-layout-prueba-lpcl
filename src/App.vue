@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <SVGLayout msg="Welcome to Your Vue.js App"/>
+    
+    <SVGLayout location="./img/sample-layout.svg" v-on:select="clicked"/>
   </div>
 </template>
 
@@ -12,7 +12,14 @@ export default {
   name: 'App',
   components: {
     SVGLayout
+  },
+  data : function(){ return {}; },
+  methods : {
+    clicked( e ){
+      window.alert( "Selected : " + e.id );
+    }
   }
+
 }
 </script>
 

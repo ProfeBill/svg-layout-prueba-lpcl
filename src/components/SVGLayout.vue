@@ -14,12 +14,14 @@ export default {
     event: 'select'
   },  
   props: {
-    location : String // URL of the SVG table layout file
+    location : String, // URL of the SVG table layout file,
+    status : Object,
+    status_map : Object
   },
 
   data(){
     return   {   
-      status :  {
+    /*  status :  {
           "TABLE_1" : {
             
             "capacity": 4,
@@ -42,6 +44,8 @@ export default {
         "empty": "cyan",
         "occupied": "yellow"
       }
+
+      */
 
     }
   },
@@ -90,7 +94,7 @@ table-selected : Trigered when the user selects a table on the screen
       if ( selection.id == "" || selection.id == "."  || selection.parentNode == null) 
         // Invalid selection
         return;
-        
+
       this.$emit( "select", selection )
     },
 
@@ -107,9 +111,9 @@ table-selected : Trigered when the user selects a table on the screen
         console.log("Event listening " + path.id);
 
         // Find status for ID
-        let status = this._data.status[ path.id ];
+        let status = this.status[ path.id ];
         // Get style used for that status
-        let style = (status) ? this._data.status_map[ status.table_status ] : null;
+        let style = (status) ? this.status_map[ status.table_status ] : null;
         
         if( style  ){
           console.log("setting style to " + style)

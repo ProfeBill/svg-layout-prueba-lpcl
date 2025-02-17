@@ -36,20 +36,20 @@ export default {
 
       } */
 
-    let response = await fetch("https://pos.vizipp.com/pos/tables");
+    /* eslint-disable */ 
+    let response = await fetch("http://l3af-mesites.llego.co/api/l3af-map/chili");
     let data = await response.json();
-    status_obj = (data);
+    status_obj = (data); 
 
     return {
 
-    status : status_obj,
-      // eslint-disable-next-line 
+      status : status_obj,
       status_map : {
         "empty": "cyan",
         "occupied": "yellow"
       }
-
-  }; },
+    }; 
+  },
   methods : {
     clicked( e ){
       window.alert( "Selected : " + e.id );

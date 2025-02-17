@@ -68,6 +68,7 @@ export default {
     },
 
     getStatus : function (id) {
+        if( !(this.status)) return;
         
         // Find status for ID
         let noprefix = "";
@@ -80,7 +81,7 @@ export default {
 
         if( !status ){
           // Not found as collection, try as array with id property
-          status = this.status.find( k => k.id == noprefix );
+          status = this.status.find( k => k.id.toString() == noprefix.toString() );
         }
 
         return status;

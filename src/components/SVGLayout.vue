@@ -67,6 +67,26 @@ export default {
       this.$emit( "select", selection )
     },
 
+    getStatus : function (id) {
+        
+        // Find status for ID
+        let noprefix = "";
+        if( !(this.prefix) || this.prefix == "" )
+          noprefix = id ;
+        else 
+          noprefix = id.substr( this.prefix.length );
+        
+        let status = this.status[ noprefix ];
+
+        if( !status ){
+          // Not found as collection, try as array with id property
+          status = this.status.find( k => k.id == noprefix );
+        }
+
+        return status;
+
+      },  
+
     // main logic
     buildMap : function (m) {
       let children = m.children;
@@ -79,15 +99,9 @@ export default {
 
         console.log("Event listening " + path.id);
 
-        // Find status for ID
-        let noprefix = "";
-        if( !(this.prefix) || this.prefix == "" )
-          noprefix = path.id ;
-        else 
-          noprefix = path.id.substr( this.prefix.length );
-        
-        let status = this.status[ noprefix ];
-        // Get style used for that status
+        let status = this.getStatus( path.id );
+
+      // Get style used for that status
         let style = (status) ? this.status_map[ status.table_status ] : null;
         
         if( style  ){

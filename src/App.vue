@@ -14,9 +14,11 @@ export default {
   components: {
     SVGLayout
   },
-  data : function(){ return {
+  data : async function(){
+    let status_obj = {};
 
-    status :  {
+   /* {
+
           "1" : {
             
             "capacity": 4,
@@ -32,8 +34,15 @@ export default {
             "order_status": "cooking"
         }
 
-      },
+      } */
 
+    let response = await fetch("https://pos.vizipp.com/pos/tables");
+    let data = await response.json();
+    status_obj = (data);
+
+    return {
+
+    status : status_obj,
       // eslint-disable-next-line 
       status_map : {
         "empty": "cyan",

@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <button @click="loadMap">Build Map</button>
-    <SVGLayout ref="map" location="./img/sample-layout.svg" v-bind:status="status" v-bind:status_map="status_map" v-on:select="clicked"/>
+    <SVGLayout ref="map" location="./img/sample-layout-bg.svg" prefix="TABLE_"
+    v-bind:status="status" v-bind:status_map="status_map" v-on:select="clicked" />
   </div>
 </template>
 
@@ -16,14 +17,14 @@ export default {
   data : function(){ return {
 
     status :  {
-          "TABLE_1" : {
+          "1" : {
             
             "capacity": 4,
             "customer_count": 2,
             "table_status" : "empty",
             "order_status": "no_order"
         },
-        "TABLE_2" :
+        "2" :
         {
             "capacity": 4,
             "customer_count": 3,

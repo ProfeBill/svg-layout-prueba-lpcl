@@ -13,7 +13,8 @@ export default {
     event: 'select'
   },  
   props: {
-    location : String, // URL of the SVG table layout file,
+    location : String,   // URL of the SVG table layout file,
+    prefix : String,     // Prefix to be prepended to every ID in the SVG, but not present in IDs of the status map
     status : Object,
     status_map : Object
   },
@@ -79,7 +80,13 @@ export default {
         console.log("Event listening " + path.id);
 
         // Find status for ID
-        let status = this.status[ path.id ];
+        let noprefix = "";
+        if( !(this.prefix) || this.prefix == "" )
+          noprefix = path.id ;
+        else 
+          noprefix = path.id.substr( this.prefix.length );
+        
+        let status = this.status[ noprefix ];
         // Get style used for that status
         let style = (status) ? this.status_map[ status.table_status ] : null;
         

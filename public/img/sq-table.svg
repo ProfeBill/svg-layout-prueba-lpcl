@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32.568058mm"
+   height="30.985472mm"
+   viewBox="0 0 32.568058 30.985472"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="sq-table.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showguides="true"
+     inkscape:zoom="2.7868023"
+     inkscape:cx="111.41802"
+     inkscape:cy="70.869756"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="16.424889,29.086641"
+       orientation="1,0"
+       id="guide2"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="7.9750904,15.225174"
+       orientation="0,-1"
+       id="guide3"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-20.84964,-46.069979)">
+    <g
+       id="TABLE_##"
+       class="clickable">
+      <path
+         id="path1"
+         style="stroke-width:60.7337;stroke-linecap:square"
+         d="M 25.011476,49.460617 H 49.229199 V 73.546666 H 25.011476 Z" />
+      <path
+         id="path2"
+         style="stroke-width:39.6459;stroke-linecap:square"
+         d="M 21.010238,54.095016 H 24.08281 V 68.926842 H 21.010238 Z" />
+      <path
+         id="path3"
+         style="stroke-width:39.6459;stroke-linecap:square"
+         d="m 50.012046,54.430685 h 3.072572 v 14.831826 h -3.072572 z" />
+      <path
+         id="path4"
+         style="stroke-width:39.6459;stroke-linecap:square"
+         d="M 29.967184,49.083382 V 46.01081 H 44.79901 v 3.072572 z" />
+      <path
+         id="path5"
+         style="stroke-width:39.6459;stroke-linecap:square"
+         d="m 29.682359,77.133798 v -3.072572 h 14.831826 v 3.072572 z" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:12.7px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="32.147686"
+       y="66.387466"
+       id="text6"><tspan
+         id="tspan6"
+         style="font-size:12.7px;fill:#ffffff;stroke-width:0.264583"
+         x="32.147686"
+         y="66.387466"
+         sodipodi:role="line">#</tspan></text>
+  </g>
+</svg>

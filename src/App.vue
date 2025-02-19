@@ -44,8 +44,8 @@ export default {
 
             this.status = data,
             this.status_map = {
-                "empty": "cyan",
-                "occupied": "yellow"
+                "empty": "#356bcf",
+                "occupied": "#eee539"
               }
       } catch (error) {
         console.error('Error fetching data:', error);

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <button @click="loadMap">Build Map</button>
+    <button @click="loadMap" ref="loadBtn">Build Map</button>
     <SVGLayout ref="map" location="./img/sample-layout-bg.svg" prefix="TABLE_"
     v-bind:status="status" v-bind:status_map="status_map" v-on:select="clicked" />
   </div>
@@ -29,6 +29,10 @@ export default {
 
   created() {
     this.fetchData();
+  },
+
+  mounted() {
+    setTimeout(() => {this.loadMap();}, 2000);
   },
 
   methods : {

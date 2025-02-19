@@ -15,7 +15,7 @@ export default {
   props: {
     location : String,   // URL of the SVG table layout file,
     prefix : String,     // Prefix to be prepended to every ID in the SVG, but not present in IDs of the status map
-    status : Object,
+    status : Array,
     status_map : Object
   },
 

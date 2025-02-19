@@ -14,48 +14,46 @@ export default {
   components: {
     SVGLayout
   },
-  data : async function(){
-    let status_obj = {};
-
-   /* {
-
-          "1" : {
-            
-            "capacity": 4,
-            "customer_count": 2,
-            "table_status" : "empty",
-            "order_status": "no_order"
-        },
-        "2" :
-        {
-            "capacity": 4,
-            "customer_count": 3,
-            "table_status" : "occupied",
-            "order_status": "cooking"
-        }
-
-      } */
-
-    /* eslint-disable */ 
-    let response = await fetch("http://l3af-mesites.llego.co/api/l3af-map/chili");
-    let data = await response.json();
-    status_obj = (data); 
-
-    return {
-
-      status : status_obj,
+  data : function(){
+    
+    let res = {
+      status : [],
       status_map : {
         "empty": "cyan",
         "occupied": "yellow"
       }
     }; 
+    return res; 
+    // return {};
   },
+
+  created() {
+    this.fetchData();
+  },
+
   methods : {
+    async fetchData() {
+      try {
+        let response = await fetch("http://l3af-mesites.llego.co/api/l3af-map/chili");
+            let data = await response.json();
+            /// status_obj = {...data}; 
+
+            this.status = data,
+            this.status_map = {
+                "empty": "cyan",
+                "occupied": "yellow"
+              }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    },
+
     clicked( e ){
       window.alert( "Selected : " + e.id );
     },
     
     loadMap : function (){
+      this.$forceUpdate();
       this.$refs["map"].update() ;
     },
 

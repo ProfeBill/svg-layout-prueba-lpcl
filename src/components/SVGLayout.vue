@@ -15,6 +15,7 @@ export default {
   props: {
     location : String,   // URL of the SVG table layout file,
     prefix : String,     // Prefix to be prepended to every ID in the SVG, but not present in IDs of the status map
+    idfield : String,    // JSON field used to identify the table
     status : Array,
     status_map : Object
   },
@@ -81,7 +82,7 @@ export default {
 
         if( !status ){
           // Not found as collection, try as array with id property
-          status = this.status.find( k => k.id.toString() == noprefix.toString() );
+          status = this.status.find( k => k[this.idfield].toString() == noprefix.toString() );
         }
 
         return status;
@@ -107,9 +108,26 @@ export default {
         
         if( style  ){
           // console.log("setting style to " + style)
-          path.style.fill = style;
+          this.changeStyle( path, style);
         } 
       }
+    },
+
+    changeStyle( path, style ){
+      if( !path ) return;
+    //  if( path.style != null )
+    try{
+        path.style.fill = style;
+    } catch(e){
+      console.log(e);
+    }
+      
+      let children = path.children;
+
+      for(var child in children){
+          this.changeStyle(children[child], style);
+      }
+
     }
 
 

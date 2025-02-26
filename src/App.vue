@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <button @click="loadMap" ref="loadBtn">Build Map</button>
-    <SVGLayout ref="map" location="./img/sample-layout-bg.svg" prefix="TABLE_"
+    <SVGLayout ref="map" location="./img/TableLayout_no_animations.svg" prefix="" idfield="name"
     v-bind:status="status" v-bind:status_map="status_map" v-on:select="clicked" />
   </div>
 </template>
@@ -56,7 +56,8 @@ export default {
       window.alert( "Selected : " + e.id );
     },
     
-    loadMap : function (){
+    loadMap : async function (){
+      await this.fetchData();
       this.$forceUpdate();
       this.$refs["map"].update() ;
     },

@@ -124,7 +124,7 @@ export default {
       
       let children = path.children;
 
-      for(var child in children){
+      for(let child in children){
           this.changeStyle(children[child], style);
       }
 

@@ -1,0 +1,1 @@
+Use this folder as base folder in IIS if you want to publish in reverse proxy mode

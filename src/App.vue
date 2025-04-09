@@ -24,7 +24,7 @@ export default {
       }
     }; 
     return res; 
-    // return {};
+
   },
 
   created() {
